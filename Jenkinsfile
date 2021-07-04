@@ -45,12 +45,12 @@ cp /var/jenkins_home/workspace/455867pipeline/target/in28Minutes-first-webapp-0.
 touch dockerfile
 cat <<EOT>>dockerfile
 FROM tomcat
-ADD gameoflife.war /usr/local/tomcat/webapps/
+ADD in28Minutes-first-webapp-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/
 CMD ["catalina.sh", "run"]
 EXPOSE 8081
 EOT
-sudo docker build -t webimage:$BUILD_NUMBER .
-sudo docker container run -itd --name webserver$BUILD_NUMBER -p 8081 webimage:$BUILD_NUMBER'''
+docker build -t webimage:$BUILD_NUMBER .
+docker container run -itd --name webserver$BUILD_NUMBER -p 8081 webimage:$BUILD_NUMBER'''
       }
     }
   }
