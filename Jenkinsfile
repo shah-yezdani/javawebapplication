@@ -3,12 +3,12 @@ pipeline{
   tools {
         // Install the Maven version configured as "M3" and add it to the path.
         maven "M3"
-        docker "D3"
+        dockerTool "D3"
     }
   stages{
     stage('Compile'){
       agent any
-      steps{
+      steps{dockerTool
         sh 'mvn compile'
       }       
     }
